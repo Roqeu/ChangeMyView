@@ -58,7 +58,7 @@ export class ChatRoom extends React.Component<any, ChatRoomState> {
                     </Col>
                 </Row>
                 <Row>
-
+                    {/* Where chat will go */}
                 </Row>
             </Content>
             <Footer>
