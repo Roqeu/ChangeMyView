@@ -1,0 +1,49 @@
+{
+    "rooms": [
+        {
+            "topic": "Brexit",
+            "stance": "Pro Brexit",
+            "lookingFor": false
+        },
+        {
+            "topic": "Foreign Aid",
+            "stance": "Pro Foreign Aid",
+            "lookingFor": true
+        },
+        {
+            "topic": "Space Force",
+            "stance": "Pro Space Battles",
+            "lookingFor": false
+        },
+        {
+            "topic": "Animal President",
+            "stance": "Against Animal President",
+            "lookingFor": true
+        },
+        {
+            "topic": "Gatorade to replace water",
+            "stance": "Pro Gatorade Irrigation",
+            "lookingFor": true
+        },
+        {
+            "topic": "Ban all the music",
+            "stance": "Pro Switching Off All The Noise",
+            "lookingFor": false
+        },
+        {
+            "topic": "Zebras are black with white stripes",
+            "stance": "Pro",
+            "lookingFor": false
+        },        
+        {
+            "topic": "All clocks should be 24hr time",
+            "stance": "Pro",
+            "lookingFor": false
+        },
+        {
+            "topic": "Santa Claus is creepy",
+            "stance": "Pro Arresting The Fat Jolly Man",
+            "lookingFor": true
+        }
+    ]
+}
