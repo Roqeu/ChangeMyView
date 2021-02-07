@@ -4,7 +4,6 @@ import { Layout } from 'antd'
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Home } from './components/Home/Home';
 import { ChatRoom } from './components/ChatRoom/ChatRoom';
-
 const { Header, Content } = Layout
 
 const headerStyle = {
@@ -15,7 +14,9 @@ const headerStyle = {
     height: "10vh"
 }
 
-export default class App extends React.Component {
+
+export default class App extends React.Component{
+    
 
 
     render() {
@@ -26,9 +27,11 @@ export default class App extends React.Component {
             </Header>
             <Content style={{height: "90vh"}}>
                 <BrowserRouter>
-                    <Route path="/room" component={ChatRoom}>
+                    <Route path="/room">
+                        <ChatRoom />
                     </Route>
-                    <Route path="/" component={Home}>
+                    <Route path="/">
+                        <Home />
                     </Route>
                 </BrowserRouter>
             </Content>

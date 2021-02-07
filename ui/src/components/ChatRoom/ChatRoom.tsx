@@ -1,14 +1,27 @@
 import { Button, Col, Input, Row } from "antd";
 import Layout from "antd/lib/layout";
 import React from "react";
-import { Redirect } from 'react-router-dom'
+import { Socket, io } from "socket.io-client";
+
+const ENDPOINT = 'http://localhost:3002'
 
 const { Content, Footer } = Layout
 
+interface User {
+
+    id: number,
+    userName: string,
+    room: string
+}
+
 interface ChatRoomState {
 
-    userId: string,
-    message: string
+    // user: User,
+    users: User[],
+    topic: string,
+    message: string,
+    socket: Socket | undefined,
+    modal: boolean
 }
 
 export class ChatRoom extends React.Component<any, ChatRoomState> {
@@ -18,8 +31,12 @@ export class ChatRoom extends React.Component<any, ChatRoomState> {
 
         this.state ={ 
 
-            userId: '',
-            message: ''
+            // user: 
+            users: [],
+            topic: '',
+            message: '',
+            socket: undefined,
+            modal: true
         }
 
         this.leaveRoom = this.leaveRoom.bind(this)
@@ -37,6 +54,24 @@ export class ChatRoom extends React.Component<any, ChatRoomState> {
     sendMessage() {
 
         
+    }
+
+    joinRoom() {
+
+        let socket = io(ENDPOINT)
+
+        socket.emit('joinRoom', undefined, undefined)
+        socket.on('roomUsers', data =>{
+
+            console.log(data)
+            this.setState({
+
+                modal: false,
+                socket: socket,
+                users: data.users,
+
+            })
+        })
     }
 
     updateMessage(message: string) {
@@ -73,6 +108,11 @@ export class ChatRoom extends React.Component<any, ChatRoomState> {
                     </Col>
                 </Row>
             </Footer>
+
+            <Modal>
+
+                
+            </Modal>
             </>
         )
     }

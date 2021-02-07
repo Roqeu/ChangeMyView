@@ -2,6 +2,7 @@ import { Button, Col, Row } from "antd";
 import React from "react";
 import './Rooms.css'
 import sampleData from '../../data/sampleRooms.json';
+import { Socket } from "socket.io-client";
 
 interface Room {
 
@@ -14,6 +15,11 @@ interface RoomListState {
     rooms: Room[]
 }
 
+interface RoomListProps {
+
+    socket: Socket
+}
+
 export class RoomList extends React.Component<any, RoomListState> {
 
     constructor(props){
@@ -23,11 +29,14 @@ export class RoomList extends React.Component<any, RoomListState> {
             
             rooms: sampleData.rooms
         }
+
+        this.joinRoom = this.joinRoom.bind(this)
     }
 
     joinRoom(event: any) {
 
         console.log(event.target.value)
+
         window.location.href = '/room'
     }
 
